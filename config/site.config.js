@@ -42,19 +42,26 @@ module.exports = {
   protectedRoutes: ['/Private', '/Demo/😎Another Private Folder Password 123'],
 
   // [OPTIONAL] Use "" here if you want to remove this email address from the nav bar.
-  email: 'mailto:me@lyc8503.net',
+  email: '',
 
   // [OPTIONAL] This is an array of names and links for setting your social information and links.
   // In the latest update, all brand icons inside font awesome is supported and the icon to render is based on the name
   // you provide. See the documentation for details.
   links: [
     {
-      name: 'GitHub',
-      link: 'https://github.com/lyc8503',
+      name: 'Wordpress',
+      link: 'https://zeroanime20.wordpress.com/',
     },
      {
       name: 'Facebook',
       link: 'https://www.facebook.com/zeroanime2020/',
+    },
+         {
+      name: 'Twitter',
+      link: 'https://x.com/ZeroA2020',
+    },     {
+      name: 'Discord',
+      link: 'https://discord.gg/uWzNBQZYyC',
     },
   ],
 
