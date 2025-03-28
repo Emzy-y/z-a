@@ -74,22 +74,8 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const extension = folder ? '' : getRawExtension(original)
   const prename = folder ? original : original.substring(0, original.length - extension.length)
   return (
-import { OdFileObject } from '../types' // Asegúrate de importar el tipo correcto
-
-interface FileListingProps {
-  files: OdFileObject[] // Definimos explícitamente la prop files
-}
-export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder }) => {
-    const original = formatChildName(name)
-    const extension = folder ? '' : getRawExtension(original)
-    const prename = folder ? original : original.substring(0, original.length - extension.length)
-    return (
-    <span 
-        className="truncate min-w-[200px] before:float-right before:content-[attr(data-tail)]" 
-        data-tail={extension}
-        style={{ display: 'inline-block', minWidth: '200px' }} // Opción alternativa
-    >
-        {prename}
+    <span className="truncate before:float-right before:content-[attr(data-tail)]" data-tail={extension}>
+      {prename}
     </span>
   )
 }
