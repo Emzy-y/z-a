@@ -78,7 +78,7 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
     <div className="flex items-center w-fit max-w-full">
       <span className="whitespace-nowrap">
         {prename}
-        {extension && <span className="text-gray-500">{extension}</span>}
+        {extension && <span className="text-gray-700">{extension}</span>}
       </span>
     </div>
   )
