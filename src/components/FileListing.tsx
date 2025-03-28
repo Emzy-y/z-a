@@ -75,11 +75,11 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const prename = folder ? original : original.substring(0, original.length - extension.length)
   
   return (
-    <div className="flex items-center w-fit max-w-full">
-      <span className="whitespace-nowrap">
+    <div className="flex items-center min-w-0">
+      <div className="truncate">
         {prename}
         {extension && <span className="text-gray-500">{extension}</span>}
-      </span>
+      </div>
     </div>
   )
 }
