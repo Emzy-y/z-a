@@ -28,17 +28,3 @@ pre[class*='language-'],
 code[class*='language-'] {
   @apply font-mono !important;
 }
-/* Personalización de columnas */
-.file-list-row {
-  display: grid;
-  grid-template-columns: minmax(200px, 60%) 20% 15% 5%;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
-}
-
-/* Para móviles */
-@media (max-width: 768px) {
-  .file-list-row {
-    grid-template-columns: 1fr;
-  }
-}
