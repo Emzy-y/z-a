@@ -80,19 +80,18 @@ interface FileListingProps {
   files: OdFileObject[] // Definimos explícitamente la prop files
 }
 
-const FileListing: FC<FileListingProps> = ({ files }) => {
-  return (
-<div className="bg-black p-6 rounded-lg w-full max-w-[95vw] mx-auto">
-  <table className="min-w-full">
-    {/* ... mismo contenido ... */}
-    <td className="px-4 py-2">
-      <div className="whitespace-normal break-all max-w-[600px]">
-        {file.name}
-      </div>
-    </td>
-    {/* ... */}
-  </table>
-</div>
+export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder }) => {
+    const original = formatChildName(name)
+    const extension = folder ? '' : getRawExtension(original)
+    const prename = folder ? original : original.substring(0, original.length - extension.length)
+    return (
+    <span 
+        className="truncate min-w-[200px] before:float-right before:content-[attr(data-tail)]" 
+        data-tail={extension}
+        style={{ display: 'inline-block', minWidth: '200px' }} // Opción alternativa
+    >
+        {prename}
+    </span>
   )
 }
 
