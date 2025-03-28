@@ -80,20 +80,17 @@ interface FileListingProps {
   files: OdFileObject[] // Definimos explícitamente la prop files
 }
 export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder }) => {
-    const original = formatChildName(name);
-    const extension = folder ? '' : getRawExtension(original);
-    const prename = folder ? original : original.substring(0, original.length - extension.length);
+    const original = formatChildName(name)
+    const extension = folder ? '' : getRawExtension(original)
+    const prename = folder ? original : original.substring(0, original.length - extension.length)
     return (
-        <span 
-            className="truncate before:float-right before:content-[attr(data-tail)]" 
-            data-tail={extension}
-        >
-            {prename}
-        </span>
-    );
-};
-
-export default FileListing
+    <span 
+        className="truncate min-w-[200px] before:float-right before:content-[attr(data-tail)]" 
+        data-tail={extension}
+        style={{ display: 'inline-block', minWidth: '200px' }} // Opción alternativa
+    >
+        {prename}
+    </span>
   )
 }
 export const ChildIcon: FC<{ child: OdFolderChildren }> = ({ child }) => {
