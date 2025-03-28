@@ -74,28 +74,9 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const extension = folder ? '' : getRawExtension(original)
   const prename = folder ? original : original.substring(0, original.length - extension.length)
   return (
-// Ejemplo de cómo modificar los anchos
-<div className="grid grid-cols-12 gap-4 items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800">
-  {/* Nombre - aproximadamente 60% */}
-  <div className="col-span-7 truncate">
-    {children}
-  </div>
-  
-  {/* Fecha - aproximadamente 20% */}
-  <div className="col-span-2 text-sm text-gray-500 dark:text-gray-400">
-    {lastModified}
-  </div>
-  
-  {/* Tamaño - aproximadamente 15% */}
-  <div className="col-span-2 text-sm text-gray-500 dark:text-gray-400">
-    {size}
-  </div>
-  
-  {/* Acciones - aproximadamente 5% */}
-  <div className="col-span-1 flex justify-end">
-    {actions}
-  </div>
-</div>
+    <span className="truncate before:float-right before:content-[attr(data-tail)]" data-tail={extension}>
+      {prename}
+    </span>
   )
 }
 export const ChildIcon: FC<{ child: OdFolderChildren }> = ({ child }) => {
