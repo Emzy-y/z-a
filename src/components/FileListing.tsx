@@ -75,12 +75,32 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const prename = folder ? original : original.substring(0, original.length - extension.length)
   
   return (
-    <div className="flex items-center w-fit max-w-full">
-      <span className="whitespace-nowrap">
-        {prename}
-        {extension && <span className="text-gray-700">{extension}</span>}
-      </span>
-    </div>
+<div className="overflow-x-auto">
+  <table className="min-w-full">
+    <thead>
+      <tr>
+        <th className="text-left px-4 py-2 w-auto">NAME</th>
+        <th className="text-left px-4 py-2 whitespace-nowrap">LAST MODIFIED</th>
+        <th className="text-left px-4 py-2">SIZE</th>
+        <th className="text-left px-4 py-2">ACTIONS</th>
+      </tr>
+    </thead>
+    <tbody>
+      {files.map((file) => (
+        <tr key={file.id}>
+          <td className="px-4 py-2 min-w-[300px] max-w-[800px]">
+            <div className="whitespace-normal break-words">
+              {file.name}
+            </div>
+          </td>
+          <td className="px-4 py-2 whitespace-nowrap">{file.modified}</td>
+          <td className="px-4 py-2">{file.size}</td>
+          <td className="px-4 py-2">💬 💬</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
   )
 }
 export const ChildIcon: FC<{ child: OdFolderChildren }> = ({ child }) => {
