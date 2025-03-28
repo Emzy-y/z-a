@@ -13,8 +13,8 @@ import { getStoredToken } from '../utils/protectedRouteHandler'
 
 const FileListItem: FC<{ fileContent: OdFolderChildren }> = ({ fileContent: c }) => {
   return (
-    <div className="grid cursor-pointer grid-cols-12 items-center space-x-1 px-2 py-2.5">
-      <div className="col-span-12 flex items-center space-x-2 truncate md:col-span-7" title={c.name}>
+    <div className="grid cursor-pointer grid-cols-10 items-center space-x-2 px-3 py-2.5">
+      <div className="col-span-10 flex items-center space-x-2 truncate md:col-span-6" title={c.name}>
         <div className="w-5 flex-shrink-0 text-center">
           <ChildIcon child={c} />
         </div>
@@ -52,8 +52,8 @@ const FolderListLayout = ({
 
   return (
     <div className="rounded bg-white shadow-sm dark:bg-gray-900 dark:text-gray-100">
-      <div className="grid grid-cols-12 items-center space-x-1 border-b border-gray-900/10 px-2 dark:border-gray-500/30">
-        <div className="col-span-12 py-2 text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-300 md:col-span-8">
+      <div className="grid grid-cols-12 items-center space-x-2 border-b border-gray-900/10 px-3 dark:border-gray-500/30">
+        <div className="col-span-12 py-2 text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-300 md:col-span-6">
           {'Name'}
         </div>
         <div className="col-span-3 hidden text-xs font-bold uppercase tracking-widest text-gray-600 dark:text-gray-300 md:block">
