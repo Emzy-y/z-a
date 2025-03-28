@@ -14,7 +14,7 @@ import { getStoredToken } from '../utils/protectedRouteHandler'
 const FileListItem: FC<{ fileContent: OdFolderChildren }> = ({ fileContent: c }) => {
   return (
     <div className="grid cursor-pointer grid-cols-12 items-center space-x-1 px-2 py-2.5">
-      <div className="col-span-12 flex items-center space-x-2 truncate md:col-span-8" title={c.name}>
+      <div className="col-span-12 flex items-center space-x-2 truncate md:col-span-7" title={c.name}>
         <div className="w-5 flex-shrink-0 text-center">
           <ChildIcon child={c} />
         </div>
