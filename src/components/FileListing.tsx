@@ -74,28 +74,40 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const extension = folder ? '' : getRawExtension(original)
   const prename = folder ? original : original.substring(0, original.length - extension.length)
   return (
-<div className="bg-black p-6 rounded-lg w-full max-w-[1400px] mx-auto overflow-x-auto">
-  <table className="min-w-full">
-    <thead>
-      <tr>
-        <th className="text-left px-4 py-2 w-[60%]">NAME</th>
-        <th className="text-left px-4 py-2 w-[20%]">LAST MODIFIED</th>
-        <th className="text-left px-4 py-2 w-[10%]">SIZE</th>
-        <th className="text-left px-4 py-2 w-[10%]">ACTIONS</th>
-      </tr>
-    </thead>
-    <tbody>
-      {files.map(file => (
-        <tr key={file.id} className="border-t border-gray-800">
-          <td className="px-4 py-2 break-all">{file.name}</td>
-          <td className="px-4 py-2 whitespace-nowrap">{file.modified}</td>
-          <td className="px-4 py-2">{file.size}</td>
-          <td className="px-4 py-2">🔴</td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
-</div>
+import { OdFileObject } from '../types' // Asegúrate de importar el tipo correcto
+
+interface FileListingProps {
+  files: OdFileObject[] // Definimos explícitamente la prop files
+}
+
+const FileListing: FC<FileListingProps> = ({ files }) => {
+  return (
+    <div className="bg-black p-6 rounded-lg w-full max-w-[1400px] mx-auto overflow-x-auto">
+      <table className="min-w-full">
+        <thead>
+          <tr>
+            <th className="text-left px-4 py-2 w-[60%]">NAME</th>
+            <th className="text-left px-4 py-2 w-[20%]">LAST MODIFIED</th>
+            <th className="text-left px-4 py-2 w-[10%]">SIZE</th>
+            <th className="text-left px-4 py-2 w-[10%]">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          {files.map((file) => (
+            <tr key={file.id} className="border-t border-gray-800">
+              <td className="px-4 py-2 break-all">{file.name}</td>
+              <td className="px-4 py-2 whitespace-nowrap">{file.lastModifiedDateTime}</td>
+              <td className="px-4 py-2">{file.size}</td>
+              <td className="px-4 py-2">🔴</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+export default FileListing
   )
 }
 export const ChildIcon: FC<{ child: OdFolderChildren }> = ({ child }) => {
