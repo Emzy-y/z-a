@@ -73,14 +73,10 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const original = formatChildName(name)
   const extension = folder ? '' : getRawExtension(original)
   const prename = folder ? original : original.substring(0, original.length - extension.length)
-  
   return (
-    <div className="flex items-center min-w-0">
-      <div className="truncate">
-        {prename}
-        {extension && <span className="text-gray-500">{extension}</span>}
-      </div>
-    </div>
+    <span className="truncate before:float-right before:content-[attr(data-tail)]" data-tail={extension}>
+      {prename}
+    </span>
   )
 }
 export const ChildIcon: FC<{ child: OdFolderChildren }> = ({ child }) => {
