@@ -22,7 +22,7 @@ export default function Home() {
             <SwitchLayout />
           </nav>
           <FileListing />
-        <div className="mx-auto w-full max-w-5xl py-4 sm:p-4">
+        </div>
       </main>
 
       <Footer />
