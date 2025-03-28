@@ -23,8 +23,6 @@ export default function Home() {
           </nav>
           <FileListing />
         <div className="mx-auto w-full max-w-5xl py-4 sm:p-4">
-          <nav className="mb-4 flex items-center justify-between px-4 sm:px-0 sm:pl-1">
-        </div>
       </main>
 
       <Footer />
