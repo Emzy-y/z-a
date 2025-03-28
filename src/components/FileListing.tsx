@@ -74,13 +74,12 @@ export const ChildName: FC<{ name: string; folder?: boolean }> = ({ name, folder
   const extension = folder ? '' : getRawExtension(original)
   const prename = folder ? original : original.substring(0, original.length - extension.length)
   return (
-<div className="flex items-start gap-2">
-  <ChildIcon child={child} />
-  <span className="whitespace-normal break-all flex-1">
-    {prename}
-    {extension && <span className="text-gray-500">{extension}</span>}
-  </span>
-</div>
+    <div className="flex items-center">
+      <span className="whitespace-normal break-all">
+        {prename}
+        {extension && <span className="text-gray-500">{extension}</span>}
+      </span>
+    </div>
   )
 }
 export const ChildIcon: FC<{ child: OdFolderChildren }> = ({ child }) => {
